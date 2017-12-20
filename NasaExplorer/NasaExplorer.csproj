@@ -96,6 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classi\ApiUtility.cs" />
+    <Compile Include="Classi\JSonHelper.cs" />
     <Compile Include="Classi\LocalStorageUtility.cs" />
     <Compile Include="HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>

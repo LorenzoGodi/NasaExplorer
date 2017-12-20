@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Navigation;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Windows.UI.Xaml.Media.Imaging;
+using NasaExplorer.Classi;
 
 // Il modello di elemento Pagina vuota è documentato all'indirizzo https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -25,17 +26,22 @@ namespace NasaExplorer
     /// </summary>
     public sealed partial class HomePage : Page
     {
+        
         public HomePage()
         {
             this.InitializeComponent();
-
-
+            
             CaricaBottone("apod", "Astronomy Picture Of the Day", "https://api.nasa.gov/planetary/apod?api_key=eyzZKG6yo1by0opmheMRLsOtUZnp0yUpKSSI5vzD");
-            CaricaBottone("Nome2", "Info", "https://api.nasa.gov/planetary/apod?api_key=eyzZKG6yo1by0opmheMRLsOtUZnp0yUpKSSI5vzD" + "&date=2014-11-21");
-            CaricaBottone("Nome3", "Info", "https://api.nasa.gov/planetary/apod?api_key=eyzZKG6yo1by0opmheMRLsOtUZnp0yUpKSSI5vzD" + "&date=2012-11-21");
-            CaricaBottone("Nome4", "Info", "https://api.nasa.gov/planetary/apod?api_key=eyzZKG6yo1by0opmheMRLsOtUZnp0yUpKSSI5vzD" + "&date=2013-11-21");
-        }
 
+            int ultimoconosciuto = Int32.Parse(LocalStorageUtility.RitornaStringa("ultimoconosciuto"));
+            CaricaBottone("rover", "Mars Rover Photos", $"https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?api_key={ApiUtility.APIKEY}&sol={ultimoconosciuto}");
+
+            CaricaBottone("epic", "Earth images from space", "https://epic.gsfc.nasa.gov/epic-archive/jpg/epic_1b_20151031003633.jpg");
+            CaricaBottone("neo", "Asteroids and Near Earth Objects", "https://space-facts.com/wp-content/uploads/asteroid-vesta.png");
+
+            string h = LocalStorageUtility.RitornaStringa("ultimoconosciuto");
+            ApiUtility.TrovaUltimoSolMarte();
+        }
 
         public async void CaricaBottone(string nome, string info, string urlimg)
         {
@@ -139,7 +145,14 @@ namespace NasaExplorer
                 case "apod":
                     CaricaImmagine_apod(urlimg, img, grdcar, nome);
                     break;
-                case "mars":
+                case "rover":
+                    CaricaImmagine_rover(urlimg, img, grdcar, nome);
+                    break;
+                case "epic":
+                    CaricaImmagine_epic(urlimg, img, grdcar, nome);
+                    break;
+                case "neo":
+                    CaricaImmagine_epic(urlimg, img, grdcar, nome);
                     break;
             }
         }
@@ -154,6 +167,61 @@ namespace NasaExplorer
             await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
             {
                 img.Source = new BitmapImage(new Uri(cose["url"].ToString(), UriKind.Absolute));
+            });
+            await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            {
+                gr.Visibility = Visibility.Collapsed;
+            });
+            System.Diagnostics.Debug.WriteLine("Completato caricamento immagine: " + @as);
+        }
+
+        public async void CaricaImmagine_rover(string url, Image img, Grid gr, string @as)
+        {
+            var winrtClient = new Windows.Web.Http.HttpClient();
+            string k = await winrtClient.GetStringAsync(new Uri(url));
+
+            JMars1 jm = JMars1.FromJson(k);
+
+            await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            {
+                img.Source = new BitmapImage(new Uri(jm.Photos[0].ImgSrc, UriKind.Absolute));
+            });
+            await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            {
+                gr.Visibility = Visibility.Collapsed;
+            });
+            System.Diagnostics.Debug.WriteLine("Completato caricamento immagine: " + @as);
+            System.Diagnostics.Debug.WriteLine(jm.Photos[0].ImgSrc);
+        }
+
+        public async void CaricaImmagine_epic(string url, Image img, Grid gr, string @as)
+        {
+            //var winrtClient = new Windows.Web.Http.HttpClient();
+            //string k = await winrtClient.GetStringAsync(new Uri(url));
+
+            //JObject cose = JObject.Parse(k);
+
+            await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            {
+                img.Source = new BitmapImage(new Uri(url, UriKind.Absolute));
+            });
+            await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            {
+                gr.Visibility = Visibility.Collapsed;
+            });
+            System.Diagnostics.Debug.WriteLine("Completato caricamento immagine: " + @as);
+        }
+
+        public async void CaricaImmagine_neo(string url, Image img, Grid gr, string @as)
+        {
+            //var winrtClient = new Windows.Web.Http.HttpClient();
+            //string k = await winrtClient.GetStringAsync(new Uri(url));
+
+            //JObject cose = JObject.Parse(k);
+
+            await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            {
+                img.Source = new BitmapImage(new Uri(url, UriKind.Absolute));
             });
             await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
             {

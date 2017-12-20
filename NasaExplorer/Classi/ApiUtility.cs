@@ -1,10 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.IO;
 using System.Threading.Tasks;
-using NasaExplorer.Classi;
 
 namespace NasaExplorer.Classi
 {
@@ -12,18 +9,29 @@ namespace NasaExplorer.Classi
     {
         public const string APIKEY = "eyzZKG6yo1by0opmheMRLsOtUZnp0yUpKSSI5vzD";
         
-        public static int TrovaUltimoSolMarte()
+        public static async void TrovaUltimoSolMarte()
         {
-            Task.Factory.StartNew(async () => {
-                int ultimoconosciuto = Int32.Parse(LocalStorageUtility.RitornaStringa("ultimoconosciuto"));
-                string url = $"https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?api_key={APIKEY}&sol={ultimoconosciuto}";
-                var winrtClient = new Windows.Web.Http.HttpClient();
-                string k = await winrtClient.GetStringAsync(new Uri(url));
-                JObject cose = JObject.Parse(k);
-            }).Wait();
+            int ultimoconosciuto = Int32.Parse(LocalStorageUtility.RitornaStringa("ultimoconosciuto"));
+            bool ripeti = true;
 
-            return 1;
+            while (ripeti)
+            {
+                using (var httpClient = new System.Net.Http.HttpClient())
+                {
+                    ultimoconosciuto++;
+                    string url = $"https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?api_key={APIKEY}&sol={ultimoconosciuto}";
+
+                    var stream = await httpClient.GetStreamAsync(url);
+                    StreamReader reader = new StreamReader(stream);
+                    string jsonString = reader.ReadToEnd();
+
+                    JMars1 jm = JMars1.FromJson(jsonString);
+                    if (ripeti = jm.Photos.Count > 1)
+                        LocalStorageUtility.SetStringa(ultimoconosciuto.ToString(), "ultimoconosciuto");
+                }
+            }            
         }
+
 
     }
 }

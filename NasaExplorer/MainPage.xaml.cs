@@ -72,7 +72,10 @@ namespace NasaExplorer
             bool internet = connections != null && connections.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess;
             return internet;            
         }
-        
-        
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(typeof(HomePage));
+        }
     }
 }

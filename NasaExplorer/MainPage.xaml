@@ -24,7 +24,7 @@
         </Style>
 
     </Page.Resources>
-    
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
@@ -32,7 +32,7 @@
         </Grid.RowDefinitions>
 
         <Grid x:Name="TopGrid" Height="60" Background="{ThemeResource SystemControlBackgroundAccentBrush}" VerticalAlignment="Top">
-            <Button HorizontalAlignment="Left" Height="60" Width="60" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" FontSize="22" Background="Transparent"/>
+            <Button HorizontalAlignment="Left" Height="60" Width="60" FontFamily="Segoe MDL2 Assets" Content="&#xE10F;" FontSize="22" Background="Transparent" Click="Button_Click"/>
             <TextBlock Text="NASA Explorer" FontWeight="Bold" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <Button HorizontalAlignment="Right" Height="60" Width="60" FontFamily="Segoe MDL2 Assets" Content="&#xE115;" FontSize="22" Background="Transparent">
                 <Button.Flyout>
@@ -46,8 +46,8 @@
             </Button>
         </Grid>
 
-        <Frame x:Name="MainFrame" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>        
+        <Frame x:Name="MainFrame" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
 
-        
+
     </Grid>
 </Page>
