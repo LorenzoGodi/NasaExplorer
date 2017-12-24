@@ -98,16 +98,19 @@
     <Compile Include="Classi\ApiUtility.cs" />
     <Compile Include="Classi\JSonHelper.cs" />
     <Compile Include="Classi\LocalStorageUtility.cs" />
-    <Compile Include="HomePage.xaml.cs">
+    <Compile Include="Pagine Principali\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainPage.xaml.cs">
+    <Compile Include="Pagine Principali\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="NoInternetPage.xaml.cs">
+    <Compile Include="Pagine Principali\NoInternetPage.xaml.cs">
       <DependentUpon>NoInternetPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Pagine Secondarie\SpecApodPage.xaml.cs">
+      <DependentUpon>SpecApodPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -171,15 +174,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="HomePage.xaml">
+    <Page Include="Pagine Principali\HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainPage.xaml">
+    <Page Include="Pagine Principali\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="NoInternetPage.xaml">
+    <Page Include="Pagine Principali\NoInternetPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pagine Secondarie\SpecApodPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

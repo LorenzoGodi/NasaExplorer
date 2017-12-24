@@ -57,6 +57,7 @@ namespace NasaExplorer
                 Padding = new Thickness(0),
                 Style = (Windows.UI.Xaml.Style)this.Resources["btn_style_1"]
             };
+            btn.Click += Button_Click;
 
             // Principale
             Grid grd = new Grid()
@@ -237,6 +238,16 @@ namespace NasaExplorer
             switch (type)
             {
                 case "apod":
+                    Frame.Navigate(typeof(SpecApodPage));
+                    break;
+                case "rover":
+
+                    break;
+                case "epic":
+
+                    break;
+                case "neo":
+
                     break;
             }
         }
