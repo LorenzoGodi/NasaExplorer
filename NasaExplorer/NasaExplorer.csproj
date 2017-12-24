@@ -111,6 +111,27 @@
     <Compile Include="Pagine Secondarie\SpecApodPage.xaml.cs">
       <DependentUpon>SpecApodPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pagine SubHome\SubHome_apod_Page.xaml.cs">
+      <DependentUpon>SubHome_apod_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pagine SubHome\SubHome_epic_Page.xaml.cs">
+      <DependentUpon>SubHome_epic_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pagine SubHome\SubHome_neo_Page.xaml.cs">
+      <DependentUpon>SubHome_neo_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pagine SubHome\SubHome_rover_Page.xaml.cs">
+      <DependentUpon>SubHome_rover_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pagine Secondarie\SpecEpicPage.xaml.cs">
+      <DependentUpon>SpecEpicPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pagine Secondarie\SpecNeoPage.xaml.cs">
+      <DependentUpon>SpecNeoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pagine Secondarie\SpecRoverPage.xaml.cs">
+      <DependentUpon>SpecRoverPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -190,6 +211,34 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pagine SubHome\SubHome_apod_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pagine SubHome\SubHome_epic_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pagine SubHome\SubHome_neo_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pagine SubHome\SubHome_rover_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pagine Secondarie\SpecEpicPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pagine Secondarie\SpecNeoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pagine Secondarie\SpecRoverPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
@@ -204,6 +253,7 @@
       <Name>Windows Mobile Extensions for the UWP</Name>
     </SDKReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
