@@ -31,16 +31,16 @@ namespace NasaExplorer
         {
             this.InitializeComponent();
             
-            CaricaBottone("apod", "Astronomy Picture Of the Day", "https://api.nasa.gov/planetary/apod?api_key=eyzZKG6yo1by0opmheMRLsOtUZnp0yUpKSSI5vzD");
+            //CaricaBottone("apod", "Astronomy Picture Of the Day", "https://api.nasa.gov/planetary/apod?api_key=eyzZKG6yo1by0opmheMRLsOtUZnp0yUpKSSI5vzD");
 
-            int ultimoconosciuto = Int32.Parse(LocalStorageUtility.RitornaStringa("ultimoconosciuto"));
-            CaricaBottone("rover", "Mars Rover Photos", $"https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?api_key={ApiUtility.APIKEY}&sol={ultimoconosciuto}");
+            //int ultimoconosciuto = Int32.Parse(LocalStorageUtility.RitornaStringa("ultimoconosciuto"));
+            //CaricaBottone("rover", "Mars Rover Photos", $"https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?api_key={ApiUtility.APIKEY}&sol={ultimoconosciuto}");
 
-            CaricaBottone("epic", "Earth images from space", "https://epic.gsfc.nasa.gov/epic-archive/jpg/epic_1b_20151031003633.jpg");
-            CaricaBottone("neo", "Asteroids and Near Earth Objects", "https://space-facts.com/wp-content/uploads/asteroid-vesta.png");
+            //CaricaBottone("epic", "Earth images from space", "https://epic.gsfc.nasa.gov/epic-archive/jpg/epic_1b_20151031003633.jpg");
+            //CaricaBottone("neo", "Asteroids and Near Earth Objects", "https://space-facts.com/wp-content/uploads/asteroid-vesta.png");
 
-            string h = LocalStorageUtility.RitornaStringa("ultimoconosciuto");
-            ApiUtility.TrovaUltimoSolMarte();
+            //string h = LocalStorageUtility.RitornaStringa("ultimoconosciuto");
+            //ApiUtility.TrovaUltimoSolMarte();
         }
 
         public async void CaricaBottone(string nome, string info, string urlimg)
@@ -138,7 +138,7 @@ namespace NasaExplorer
 
             await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
             {
-                MainPanel.Children.Add(btn);
+                //MainPanel.Children.Add(btn);
             });
 
             switch (nome)

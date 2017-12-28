@@ -25,10 +25,149 @@
 
     </Page.Resources>
 
-    <ScrollViewer Grid.Row="1">
-        <StackPanel x:Name="MainPanel" Orientation="Vertical" HorizontalAlignment="Stretch" Padding="15">
-
-        </StackPanel>
-    </ScrollViewer>
+    <!---->
     
+    <Grid>
+        
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="VisualStatePhone">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!-- Setters -->
+                        <Setter Target="APOD_1.(Grid.Row)" Value="0" />
+                        <Setter Target="APOD_1.(Grid.Column)" Value="0" />
+                        <Setter Target="ROVER_2.(Grid.Row)" Value="1" />
+                        <Setter Target="ROVER_2.(Grid.Column)" Value="0" />
+                        <Setter Target="EPIC_3.(Grid.Row)" Value="2" />
+                        <Setter Target="EPIC_3.(Grid.Column)" Value="0" />
+                        <Setter Target="NEO_4.(Grid.Row)" Value="3" />
+                        <Setter Target="NEO_4.(Grid.Column)" Value="0" />
+
+                        <Setter Target="APOD_1.(Grid.ColumnSpan)" Value="2" />
+                        <Setter Target="ROVER_2.(Grid.ColumnSpan)" Value="2" />
+                        <Setter Target="EPIC_3.(Grid.ColumnSpan)" Value="2" />
+                        <Setter Target="NEO_4.(Grid.ColumnSpan)" Value="2" />
+                        
+                        <Setter Target="APOD_1.Margin" Value="16,16,16,0" />
+                        <Setter Target="ROVER_2.Margin" Value="16,16,16,0" />
+                        <Setter Target="EPIC_3.Margin" Value="16,16,16,0" />
+                        <Setter Target="NEO_4.Margin" Value="16,16,16,16" />
+
+                        <Setter Target="APOD_1.Height" Value="250" />
+                        <Setter Target="ROVER_2.Height" Value="250" />
+                        <Setter Target="EPIC_3.Height" Value="250" />
+                        <Setter Target="NEO_4.Height" Value="250" />
+                        <!-- Fine Setters -->
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="VisualStateTablet">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!-- Setters -->
+                        <Setter Target="APOD_1.(Grid.Row)" Value="0" />
+                        <Setter Target="APOD_1.(Grid.Column)" Value="0" />
+                        <Setter Target="ROVER_2.(Grid.Row)" Value="0" />
+                        <Setter Target="ROVER_2.(Grid.Column)" Value="1" />
+                        <Setter Target="EPIC_3.(Grid.Row)" Value="1" />
+                        <Setter Target="EPIC_3.(Grid.Column)" Value="0" />
+                        <Setter Target="NEO_4.(Grid.Row)" Value="1" />
+                        <Setter Target="NEO_4.(Grid.Column)" Value="1" />
+
+                        <Setter Target="APOD_1.(Grid.ColumnSpan)" Value="1" />
+                        <Setter Target="ROVER_2.(Grid.ColumnSpan)" Value="1" />
+                        <Setter Target="EPIC_3.(Grid.ColumnSpan)" Value="1" />
+                        <Setter Target="NEO_4.(Grid.ColumnSpan)" Value="1" />
+
+                        <Setter Target="APOD_1.Margin" Value="16,16,8,0" />
+                        <Setter Target="ROVER_2.Margin" Value="8,16,16,0" />
+                        <Setter Target="EPIC_3.Margin" Value="16,16,8,16" />
+                        <Setter Target="NEO_4.Margin" Value="8,16,16,16" />
+
+                        <Setter Target="APOD_1.Height" Value="250" />
+                        <Setter Target="ROVER_2.Height" Value="250" />
+                        <Setter Target="EPIC_3.Height" Value="250" />
+                        <Setter Target="NEO_4.Height" Value="250" />
+                        <!-- Fine Setters -->
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="VisualStateDesktop">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="900"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!-- Setters -->
+                        <Setter Target="APOD_1.(Grid.Row)" Value="0" />
+                        <Setter Target="APOD_1.(Grid.Column)" Value="0" />
+                        <Setter Target="ROVER_2.(Grid.Row)" Value="0" />
+                        <Setter Target="ROVER_2.(Grid.Column)" Value="1" />
+                        <Setter Target="EPIC_3.(Grid.Row)" Value="1" />
+                        <Setter Target="EPIC_3.(Grid.Column)" Value="0" />
+                        <Setter Target="NEO_4.(Grid.Row)" Value="1" />
+                        <Setter Target="NEO_4.(Grid.Column)" Value="1" />
+
+                        <Setter Target="APOD_1.(Grid.ColumnSpan)" Value="1" />
+                        <Setter Target="ROVER_2.(Grid.ColumnSpan)" Value="1" />
+                        <Setter Target="EPIC_3.(Grid.ColumnSpan)" Value="1" />
+                        <Setter Target="NEO_4.(Grid.ColumnSpan)" Value="1" />
+
+                        <Setter Target="APOD_1.Margin" Value="16,16,8,0" />
+                        <Setter Target="ROVER_2.Margin" Value="8,16,16,0" />
+                        <Setter Target="EPIC_3.Margin" Value="16,16,8,16" />
+                        <Setter Target="NEO_4.Margin" Value="8,16,16,16" />
+
+                        <Setter Target="APOD_1.Height" Value="400" />
+                        <Setter Target="ROVER_2.Height" Value="400" />
+                        <Setter Target="EPIC_3.Height" Value="400" />
+                        <Setter Target="NEO_4.Height" Value="400" />
+                        <!-- Fine Setters -->
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <!---->
+    
+        <ScrollViewer>
+            <Grid x:Name="GridEsterna">            
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                
+                <!---->
+
+                <Button x:Name="APOD_1" Padding="0" BorderThickness="0" HorizontalAlignment="Stretch" Style="{ThemeResource btn_style_1}">
+                    <Frame />
+                </Button>
+
+                <Button x:Name="ROVER_2" Padding="0" BorderThickness="0" HorizontalAlignment="Stretch" Style="{ThemeResource btn_style_1}">
+                    <Frame />
+                </Button>
+
+                <Button x:Name="EPIC_3" Padding="0" BorderThickness="0" HorizontalAlignment="Stretch" Style="{ThemeResource btn_style_1}">
+                    <Frame />
+                </Button>
+
+                <Button x:Name="NEO_4" Padding="0" BorderThickness="0" HorizontalAlignment="Stretch" Style="{ThemeResource btn_style_1}">
+                    <Frame />
+                </Button>
+
+            </Grid>
+        </ScrollViewer>
+        
+    </Grid>
+
 </Page>
