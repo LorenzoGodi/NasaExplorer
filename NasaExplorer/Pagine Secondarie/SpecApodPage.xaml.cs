@@ -49,8 +49,8 @@ namespace NasaExplorer
         {
             await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
             {
+                grid_errore.Visibility = Visibility.Collapsed;
                 grid_caricamento.Visibility = Visibility.Visible;
-                //scrollvw.Visibility = Visibility.Collapsed;
             });
 
             //
@@ -70,18 +70,25 @@ namespace NasaExplorer
 
                 //
 
-                Uri uri = new Uri(BaseUri, url_img);
-                BitmapImage imgSource = new BitmapImage(uri);
-
-                await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                if(cose["media_type"].ToString() == "image")
                 {
-                    myimage.Source = imgSource;
-                    descrizione.Text = cose["explanation"].ToString();
-                });
+                    Uri uri = new Uri(BaseUri, url_img);
+                    BitmapImage imgSource = new BitmapImage(uri);
+
+                    await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                    {
+                        myimage.Source = imgSource;
+                        descrizione.Text = cose["explanation"].ToString();
+                    });
+                }
+                else
+                {
+                    throw new Exception("Impossibile caricare immagine");
+                }                
             }
             catch
             {
-
+                grid_errore.Visibility = Visibility.Visible;
             }
             
         }
@@ -93,7 +100,6 @@ namespace NasaExplorer
 
         private void myimage_ImageOpened(object sender, RoutedEventArgs e)
         {
-            scrollvw.Visibility = Visibility.Visible;
             grid_caricamento.Visibility = Visibility.Collapsed;
         }
     }

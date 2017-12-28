@@ -31,11 +31,18 @@
 
             </StackPanel>
         </ScrollViewer>
-        
+
         <Grid x:Name="grid_caricamento" Grid.Row="1" Margin="15,0,15,15" Background="#181818" VerticalAlignment="Stretch">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <ProgressRing IsActive="True" Foreground="White" Height="30" Width="30"/>
                 <TextBlock Text="Caricamento immagine" FontSize="16" VerticalAlignment="Center" Margin="15,0,0,0"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid x:Name="grid_errore" Grid.Row="1" Margin="15,0,15,15" Background="#181818" VerticalAlignment="Stretch" Visibility="Collapsed">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <FontIcon Glyph="&#xE00C;" FontSize="40" Foreground="Red"/>
+                <TextBlock Text="Questa immagine non è disponibile" FontSize="16" VerticalAlignment="Center" Margin="0,15,0,0"/>
             </StackPanel>
         </Grid>
 
