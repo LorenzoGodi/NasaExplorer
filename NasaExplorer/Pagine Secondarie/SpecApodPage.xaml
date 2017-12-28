@@ -9,16 +9,35 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        
+        <StackPanel Orientation="Horizontal" Margin="15,15,15,15">
+            <TextBlock Text="Seleziona Data" VerticalAlignment="Center"/>
+            <DatePicker x:Name="mydate" Margin="15,0,0,0" DateChanged="DatePicker_DateChanged"/>
+        </StackPanel>
 
-        <Image x:Name="myimage" Margin="15,15,15,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <ScrollViewer x:Name="scrollvw" Grid.Row="1" Margin="15,0,0,15">
+            <StackPanel>
 
-        <RelativePanel Grid.Row="1">
-            <DatePicker x:Name="mydate" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="15" DateChanged="DatePicker_DateChanged"/>
-            
-        </RelativePanel>
+                <ScrollViewer HorizontalAlignment="Stretch" ZoomMode="Enabled" MinZoomFactor="1">
+                    <Image x:Name="myimage" Margin="0,0,15,0" ImageOpened="myimage_ImageOpened"/>
+                </ScrollViewer>
+
+                <TextBlock Text="Descrizione" Margin="0,25,15,15" HorizontalAlignment="Center" Style="{ThemeResource BaseTextBlockStyle}"/>
+
+                <TextBlock x:Name="descrizione" Margin="0,0,15,0" TextAlignment="Justify" TextWrapping="WrapWholeWords" Style="{ThemeResource BodyTextBlockStyle}"/>
+
+            </StackPanel>
+        </ScrollViewer>
+        
+        <Grid x:Name="grid_caricamento" Grid.Row="1" Margin="15,0,15,15" Background="#181818" VerticalAlignment="Stretch">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ProgressRing IsActive="True" Foreground="White" Height="30" Width="30"/>
+                <TextBlock Text="Caricamento immagine" FontSize="16" VerticalAlignment="Center" Margin="15,0,0,0"/>
+            </StackPanel>
+        </Grid>
 
     </Grid>
 </Page>
