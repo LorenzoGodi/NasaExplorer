@@ -11,9 +11,9 @@
 
         <Image Source="/Immagini/empty.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="UniformToFill"/>
 
-        <Image x:Name="Img" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="UniformToFill"/>
+        <Image x:Name="Img" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="UniformToFill" ImageOpened="Img_ImageOpened"/>
 
-        <Grid Background="#424242">
+        <Grid x:Name="grid_caricamento" Background="#424242">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <ProgressRing IsActive="True" Foreground="White" Height="30" Width="30"/>
                 <TextBlock Text="Caricamento" FontSize="16" VerticalAlignment="Center" Margin="15,0,0,0"/>

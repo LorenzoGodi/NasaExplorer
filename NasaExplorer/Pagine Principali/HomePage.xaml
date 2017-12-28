@@ -145,7 +145,7 @@
                 
                 <!---->
 
-                <Button x:Name="APOD_1" Padding="0" BorderThickness="0" HorizontalAlignment="Stretch" Style="{ThemeResource btn_style_1}">
+                <Button x:Name="APOD_1" Click="APOD_1_Click" Padding="0" BorderThickness="0" HorizontalAlignment="Stretch" Style="{ThemeResource btn_style_1}">
                     <Frame x:Name="APOD_Frame"/>
                 </Button>
 
