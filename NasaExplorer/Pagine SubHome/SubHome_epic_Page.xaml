@@ -7,7 +7,23 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="#141414">
+
+        <Image Source="/Immagini/empty.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="UniformToFill"/>
+
+        <Image x:Name="Img" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="UniformToFill"/>
+
+        <Grid Background="#424242">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ProgressRing IsActive="True" Foreground="White" Height="30" Width="30"/>
+                <TextBlock Text="Caricamento" FontSize="16" VerticalAlignment="Center" Margin="15,0,0,0"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Height="40" VerticalAlignment="Bottom" Background="{ThemeResource SystemControlBackgroundAltMediumBrush}">
+            <TextBlock Text="Earth images from space" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"/>
+        </Grid>
 
     </Grid>
+    
 </Page>

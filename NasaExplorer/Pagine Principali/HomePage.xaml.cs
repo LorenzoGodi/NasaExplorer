@@ -30,7 +30,12 @@ namespace NasaExplorer
         public HomePage()
         {
             this.InitializeComponent();
-            
+
+            APOD_Frame.Navigate(typeof(SubHome_apod_Page));
+            ROVER_Frame.Navigate(typeof(SubHome_rover_Page));
+            EPIC_Frame.Navigate(typeof(SubHome_epic_Page));
+            NEO_Frame.Navigate(typeof(SubHome_neo_Page));
+
             //CaricaBottone("apod", "Astronomy Picture Of the Day", "https://api.nasa.gov/planetary/apod?api_key=eyzZKG6yo1by0opmheMRLsOtUZnp0yUpKSSI5vzD");
 
             //int ultimoconosciuto = Int32.Parse(LocalStorageUtility.RitornaStringa("ultimoconosciuto"));
@@ -43,6 +48,7 @@ namespace NasaExplorer
             //ApiUtility.TrovaUltimoSolMarte();
         }
 
+        /*
         public async void CaricaBottone(string nome, string info, string urlimg)
         {
             System.Diagnostics.Debug.WriteLine(nome);
@@ -251,6 +257,6 @@ namespace NasaExplorer
                     break;
             }
         }
-
+        */
     }
 }

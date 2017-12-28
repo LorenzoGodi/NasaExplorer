@@ -19,10 +19,6 @@
             </Setter>
         </Style>
 
-        <Style x:Key="grd_style_1" TargetType="Grid">
-            <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundAltMediumBrush}"/>
-        </Style>
-
     </Page.Resources>
 
     <!---->
@@ -150,19 +146,19 @@
                 <!---->
 
                 <Button x:Name="APOD_1" Padding="0" BorderThickness="0" HorizontalAlignment="Stretch" Style="{ThemeResource btn_style_1}">
-                    <Frame />
+                    <Frame x:Name="APOD_Frame"/>
                 </Button>
 
                 <Button x:Name="ROVER_2" Padding="0" BorderThickness="0" HorizontalAlignment="Stretch" Style="{ThemeResource btn_style_1}">
-                    <Frame />
+                    <Frame x:Name="ROVER_Frame"/>
                 </Button>
 
                 <Button x:Name="EPIC_3" Padding="0" BorderThickness="0" HorizontalAlignment="Stretch" Style="{ThemeResource btn_style_1}">
-                    <Frame />
+                    <Frame x:Name="EPIC_Frame"/>
                 </Button>
 
                 <Button x:Name="NEO_4" Padding="0" BorderThickness="0" HorizontalAlignment="Stretch" Style="{ThemeResource btn_style_1}">
-                    <Frame />
+                    <Frame x:Name="NEO_Frame"/>
                 </Button>
 
             </Grid>
